@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XV Años de Jazmín</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; text-align:center; background:#fffafc; color:#333; }
+    header { background: url('img/Imagen1.jpg') no-repeat center center/cover; height: 80vh; display:flex; justify-content:center; align-items:center; color:white; text-shadow:2px 2px 6px rgba(0,0,0,0.7); }
+    header h1 { font-size:3em; }
+    .info { padding:30px; }
+    .countdown { font-size:1.5em; margin:20px 0; }
+    .gallery { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:10px; padding:20px; }
+    .gallery img { width:100%; border-radius:10px; }
+    .btn { background:#e91e63; color:white; padding:15px 25px; text-decoration:none; border-radius:30px; display:inline-block; margin-top:20px; font-size:1.2em; }
+    footer { background:#333; color:white; padding:20px; margin-top:40px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Los XV de Jazmín</h1>
+  </header>
+
+  <section class="info">
+    <h2>Te espero en mi noche especial</h2>
+    <p><strong>Fecha:</strong> 8 de Noviembre - 21:30 hs</p>
+    <p><strong>Lugar:</strong> Sauron Adventure & Homes</p>
+    <p><strong>Dirección:</strong> Cno a Estancia Cáceres Comechingones 94, Villa Carlos Paz, Córdoba</p>
+    <div class="countdown" id="countdown"></div>
+    <a class="btn" href="https://wa.me/543541232547?text=Hola! Confirmo mi asistencia a los XV de Jazmín" target="_blank">Confirmar Asistencia</a>
+  </section>
+
+  <section class="gallery">
+    <img src="img/Imagen2.jpg" alt="Galería 1">
+    <img src="img/Imagen3.jpg" alt="Galería 2">
+    <img src="img/Imagen4.jpg" alt="Galería 3">
+    <img src="img/Imagen5.png" alt="Galería 4">
+    <img src="img/Imagen6.png" alt="Galería 5">
+  </section>
+
+  <footer>
+    <p>Con mucho cariño, Jazmín 💕</p>
+  </footer>
+
+  <script>
+    const countDownDate = new Date("Nov 8, 2025 21:30:00").getTime();
+    const x = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = countDownDate - now;
+      if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "¡Ya comenzó la fiesta! 🎉";
+        clearInterval(x);
+      } else {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
